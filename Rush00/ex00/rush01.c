@@ -6,7 +6,7 @@
 /*   By: agraton <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/12 12:50:26 by agraton           #+#    #+#             */
-/*   Updated: 2020/09/12 13:59:00 by agraton          ###   ########.fr       */
+/*   Updated: 2020/09/13 10:45:29 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			ft_putchar(char c);
 ** Finaly, it returns str to the rush fuction.
 */
 
-char			*rush_first_row(char *str, int width, int toobig, int i)
+char			*rush_f_row(char *str, int width, int toobig, int i)
 {
 	while (++i < width)
 	{
@@ -52,7 +52,7 @@ char			*rush_first_row(char *str, int width, int toobig, int i)
 	return (str);
 }
 
-char			*rush_middle_row(char *str, int width, int toobig, int i)
+char			*rush_m_row(char *str, int width, int toobig, int i)
 {
 	while (++i < width)
 	{
@@ -74,7 +74,7 @@ char			*rush_middle_row(char *str, int width, int toobig, int i)
 	return (str);
 }
 
-char			*rush_last_row(char *str, int width, int toobig, int i)
+char			*rush_l_row(char *str, int width, int toobig, int i)
 {
 	while (++i < width)
 	{
@@ -124,11 +124,11 @@ void			rush(int width, int height)
 	while (++i <= height)
 	{
 		if (i == 1)
-			write(1, rush_first_row(str, width, toobig, -1), (toobig) ? 0 : width);
+			write(1, rush_f_row(str, width, toobig, -1), (toobig) ? 0 : width);
 		else if (i == height)
-			write(1, rush_last_row(str, width, toobig, -1), (toobig) ? 0 : width);
+			write(1, rush_l_row(str, width, toobig, -1), (toobig) ? 0 : width);
 		else
-			write(1, rush_middle_row(str, width, toobig, -1), (toobig ) ? 0 : width);
+			write(1, rush_m_row(str, width, toobig, -1), (toobig) ? 0 : width);
 		ft_putchar('\n');
 	}
 }

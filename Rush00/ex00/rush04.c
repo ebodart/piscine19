@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush04.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: kkalinic <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/12 14:09:09 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/12 14:51:52 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/12 14:54:16 by kkalinic          #+#    #+#             */
+/*   Updated: 2020/09/13 10:49:35 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,23 @@ void			ft_putchar(char c);
 ** Finaly, it returns str to the rush fuction.
 */
 
-char			*rush_first_row(char *str, int width, int toobig, int i)
+char			*rush_f_row(char *str, int width, int toobig, int i)
 {
 	while (++i < width)
 	{
-		if (i == 0 || i == width -1)
+		if (i == 0)
 		{
 			if (toobig)
 				ft_putchar('A');
 			else
 				str[i] = 'A';
+		}
+		else if (i == width - 1)
+		{
+			if (toobig)
+				ft_putchar('C');
+			else
+				str[i] = 'C';
 		}
 		else
 		{
@@ -45,7 +52,7 @@ char			*rush_first_row(char *str, int width, int toobig, int i)
 	return (str);
 }
 
-char			*rush_middle_row(char *str, int width, int toobig, int i)
+char			*rush_m_row(char *str, int width, int toobig, int i)
 {
 	while (++i < width)
 	{
@@ -67,16 +74,23 @@ char			*rush_middle_row(char *str, int width, int toobig, int i)
 	return (str);
 }
 
-char			*rush_last_row(char *str, int width, int toobig, int i)
+char			*rush_l_row(char *str, int width, int toobig, int i)
 {
 	while (++i < width)
 	{
-		if (i == 0 || i == width -1)
+		if (i == 0)
 		{
 			if (toobig)
 				ft_putchar('C');
 			else
 				str[i] = 'C';
+		}
+		else if (i == width - 1)
+		{
+			if (toobig)
+				ft_putchar('A');
+			else
+				str[i] = 'A';
 		}
 		else
 		{
@@ -110,11 +124,11 @@ void			rush(int width, int height)
 	while (++i <= height)
 	{
 		if (i == 1)
-			write(1, rush_first_row(str, width, toobig, -1), (toobig) ? 0 : width);
+			write(1, rush_f_row(str, width, toobig, -1), (toobig) ? 0 : width);
 		else if (i == height)
-			write(1, rush_last_row(str, width, toobig, -1), (toobig) ? 0 : width);
+			write(1, rush_l_row(str, width, toobig, -1), (toobig) ? 0 : width);
 		else
-			write(1, rush_middle_row(str, width, toobig, -1), (toobig ) ? 0 : width);
+			write(1, rush_m_row(str, width, toobig, -1), (toobig) ? 0 : width);
 		ft_putchar('\n');
 	}
 }
