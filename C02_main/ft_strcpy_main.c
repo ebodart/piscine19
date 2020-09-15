@@ -1,57 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/13 12:00:11 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/14 09:02:07 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/14 11:30:01 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/14 11:30:05 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void		ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb)
+void	ft_putstr(char *str)
 {
-	long int a;
+	int i;
 
-	a = nb;
-	if (a < 0)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		ft_putchar('-');
-		a = -a;
+		ft_putchar(str[i]);
+		i++;
 	}
-	if (a >= 10)
-	{
-		ft_putnbr(a / 10);
-	}
-	ft_putchar(a % 10 + '0');
 }
 
-void	ft_swap(int *a, int *b)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int c;
+	int i;
 
-	c = *b;
-	*b = *a;
-	*a = c;
+	i = 0;
+	while (src[i] != '\0')
+		{
+			dest[i] = src [i];
+			i ++;
+		}
+		dest[i] = '\0';
+		return (dest);
 }
 
 int		main(void)
 {
-	int a;
-	int b;
-
-	a = 42;
-	b = 16;
-	ft_swap(&a, &b);
-	ft_putnbr(a);
+	char src[] = "Hello";
+	char dest[] = "Salut";
+	
+	ft_putstr(src);
 	ft_putchar('\n');
-	ft_putnbr(b);
+	ft_putstr(dest);
+	ft_putchar('\n');
+	ft_strcpy(src, dest);
+	ft_putchar('\n');
+	ft_putstr(dest);
+	ft_putchar('\n');
+	ft_putstr(dest);
 }
