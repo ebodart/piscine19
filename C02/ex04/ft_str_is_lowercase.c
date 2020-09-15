@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 18:59:09 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/14 18:59:13 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/15 11:20:56 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/15 11:20:59 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+int	ft_str_is_lowercase(char *str)
 {
 	int i;
 
@@ -18,10 +18,6 @@ int	ft_str_is_alpha(char *str)
 	while (str[i] != '\0')
 	{
 		if ((str[i] >= 'a') && (str[i] <= 'z'))
-		{
-			i++;
-		}
-		else if ((str[i] >= 'A') && (str[i] <= 'Z'))
 		{
 			i++;
 		}

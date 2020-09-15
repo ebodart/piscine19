@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 18:59:09 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/14 18:59:13 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/15 12:03:27 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/15 12:03:29 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+char	*ft_strupcase(char *str)
 {
 	int i;
 
@@ -19,16 +19,9 @@ int	ft_str_is_alpha(char *str)
 	{
 		if ((str[i] >= 'a') && (str[i] <= 'z'))
 		{
-			i++;
+			str[i] = str[i] - 32;
 		}
-		else if ((str[i] >= 'A') && (str[i] <= 'Z'))
-		{
-			i++;
-		}
-		else
-		{
-			return (0);
-		}
+		i++;
 	}
-	return (1);
+	return (str);
 }

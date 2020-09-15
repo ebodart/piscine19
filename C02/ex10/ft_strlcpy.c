@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 18:59:09 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/14 18:59:13 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/15 14:07:11 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/15 14:07:19 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int i;
+	unsigned int nbr;
+	unsigned int size_d;
 
-	i = 0;
-	while (str[i] != '\0')
+	nbr = 0;
+	size_d = 0;
+	while (src[nbr] != '\0')
 	{
-		if ((str[i] >= 'a') && (str[i] <= 'z'))
-		{
-			i++;
-		}
-		else if ((str[i] >= 'A') && (str[i] <= 'Z'))
-		{
-			i++;
-		}
-		else
-		{
-			return (0);
-		}
+		nbr++;
 	}
-	return (1);
+	if (size != 0)
+	{
+		while ((src[size_d] != 0) && (size_d < (size - 1)))
+		{
+			dest[size_d] = src[size_d];
+			size_d++;
+		}
+		dest[size_d] = '\0';
+	}
+	return (nbr);
 }
