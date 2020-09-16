@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 16:45:38 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/15 16:45:50 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/16 14:40:04 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/16 14:40:08 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+char	*ft_strcat(char *dest, char *src)
 {
+	int count;
 	int i;
-	int ordre;
 
+	count = 0;
 	i = 0;
-	while (s1[i] == s2[i])
+	while (dest[count])
+		count++;
+	while (src[i])
 	{
-		if ((s1[i] == '\0') && (s2[i] == '\0'))
-		{
-			return (0);
-		}
+		dest[count + i] = src[i];
 		i++;
 	}
-	ordre = s1[i] - s2[i];
-	return (ordre);
+	dest[count + i] = '\0';
+	return (dest);
 }

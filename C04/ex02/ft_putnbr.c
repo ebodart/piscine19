@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 16:45:38 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/15 16:45:50 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/16 18:59:39 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/16 18:59:40 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int i;
-	int ordre;
+#include <unistd.h>
 
-	i = 0;
-	while (s1[i] == s2[i])
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	long int a;
+
+	a = nb;
+	if (a < 0)
 	{
-		if ((s1[i] == '\0') && (s2[i] == '\0'))
-		{
-			return (0);
-		}
-		i++;
+		ft_putchar('-');
+		a = -a;
 	}
-	ordre = s1[i] - s2[i];
-	return (ordre);
+	if (a >= 10)
+	{
+		ft_putnbr(a / 10);
+	}
+	ft_putchar(a % 10 + '0');
 }
