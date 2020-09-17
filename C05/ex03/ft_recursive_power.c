@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 19:11:25 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/16 19:11:29 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/17 16:55:29 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/17 16:55:33 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_recursive_power(int nb, int power)
 {
-	int signe;
 	int i;
-	int result;
+	int a;
 
-	signe = 1;
-	i = 0;
-	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\v') ||
-	(str[i] == '\f') || (str[i] == '\r') || (str[i] == '\n'))
-		i++;
-	while ((str[i] == '+') || (str[i] == '-'))
+	a = nb;
+	i = 1;
+	if (power < 0)
 	{
-		if (str[i] == '-')
-			signe = -signe;
-		i++;
+		return (0);
 	}
-	result = 0;
-	while ((str[i] >= '0') && (str[i] <= '9'))
+	else if (power == 0)
 	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
+		return (1);
 	}
-	return (result * signe);
+	else
+	{
+		return (a * (ft_recursive_power(a, (power - 1))));
+	}
 }

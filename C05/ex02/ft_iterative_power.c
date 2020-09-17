@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 19:11:25 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/16 19:11:29 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/17 16:35:10 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/17 16:35:11 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_iterative_power(int nb, int power)
 {
-	int signe;
 	int i;
 	int result;
 
-	signe = 1;
-	i = 0;
-	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\v') ||
-	(str[i] == '\f') || (str[i] == '\r') || (str[i] == '\n'))
-		i++;
-	while ((str[i] == '+') || (str[i] == '-'))
+	result = 1;
+	i = 1;
+	if (power < 0)
 	{
-		if (str[i] == '-')
-			signe = -signe;
-		i++;
+		return (0);
 	}
-	result = 0;
-	while ((str[i] >= '0') && (str[i] <= '9'))
+	while (i <= power)
 	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
+		if (power == 0)
+		{
+			return (1);
+		}
+		else
+		{
+			result = result * nb;
+			i++;
+		}
 	}
-	return (result * signe);
+	return (result);
 }

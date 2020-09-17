@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 19:11:25 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/16 19:11:29 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/17 14:21:39 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/17 14:21:41 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int signe;
 	int i;
-	int result;
+	int resultat;
 
-	signe = 1;
-	i = 0;
-	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\v') ||
-	(str[i] == '\f') || (str[i] == '\r') || (str[i] == '\n'))
-		i++;
-	while ((str[i] == '+') || (str[i] == '-'))
+	resultat = 1;
+	i = 1;
+	if (nb == 0)
 	{
-		if (str[i] == '-')
-			signe = -signe;
+		return (1);
+	}
+	if (nb < 0)
+	{
+		return (0);
+	}
+	while (i <= nb)
+	{
+		resultat = resultat * i;
 		i++;
 	}
-	result = 0;
-	while ((str[i] >= '0') && (str[i] <= '9'))
-	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
-	return (result * signe);
+	return (resultat);
 }

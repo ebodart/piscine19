@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_print_programme_name.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 19:11:25 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/16 19:11:29 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/17 20:01:57 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/17 20:01:59 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int signe;
-	int i;
-	int result;
+#include <unistd.h>
 
-	signe = 1;
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void ft_putstr(char *str)
+{
+	int i;
+	
 	i = 0;
-	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\v') ||
-	(str[i] == '\f') || (str[i] == '\r') || (str[i] == '\n'))
-		i++;
-	while ((str[i] == '+') || (str[i] == '-'))
+	while (str[i])
 	{
-		if (str[i] == '-')
-			signe = -signe;
+		ft_putchar(str[i]);
 		i++;
 	}
-	result = 0;
-	while ((str[i] >= '0') && (str[i] <= '9'))
-	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
-	return (result * signe);
+}
+
+int	main(int argc, char **argv)
+{
+	ft_putstr(argv[0]);
+	ft_putchar('\n');
+	return (0);
 }
