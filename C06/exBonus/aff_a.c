@@ -1,45 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   aff_a.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/17 21:12:56 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/17 21:12:58 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/18 08:53:35 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/18 08:53:37 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putchar(char c)
+int	ft_comp(char *str)
 {
-	write(1, &c, 1);
-}
+	int a;
 
-int ft_strlen(char *str)
-{
-	int i;
-	
-	i = 0;
-	while (str[i])
+	a = 0;
+	while (str[a])
 	{
-		i++;
+		if (str[a] == 'a')
+		{
+			return (1);
+		}
+		a++;
 	}
-	return (i);
+	return (0);
+
 }
 
 int	main(int argc, char **argv)
 {
 	int i;
 
-    i = 1;
-    while (i < argc)
-    {
-        write(1, argv[i], (ft_strlen(argv[i])));
-		i++;
-	    ft_putchar('\n');
-    }
+	i = 1;
+	if (argc != 2)
+	{
+		write(1, "a", 1);
+		write(1, "\n", 1);
+	}
+	else
+	{
+		if ((ft_comp(argv[i])) == 1)
+		{
+			write(1, "a", 1);
+			write(1, "\n", 1);
+		}
+		else
+		{
+			write(1, "\n", 1);
+		}
+	}
 	return (0);
 }
-
