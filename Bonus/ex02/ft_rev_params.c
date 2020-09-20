@@ -1,44 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/17 21:12:56 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/17 21:12:58 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/19 18:41:34 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/19 18:41:35 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int ft_strlen(char *str)
 {
-	write(1, &c, 1);
+    int i;
+
+    i = 0;
+    while (str[i])
+    {
+        i++;
+    }
+    return (i);
 }
 
-int		ft_strlen(char *str)
+
+int main(int argc, char **argv)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-int		main(int argc, char **argv)
-{
-	int i;
-
-	i = 1;
-	while (i < argc)
-	{
-		write(1, argv[i], (ft_strlen(argv[i])));
-		i++;
-		ft_putchar('\n');
-	}
-	return (0);
+    int a;
+    
+    a = argc - 1;
+    while (a > 0)
+    {
+        write(1, argv[a], ft_strlen(argv[a]));
+        write(1, "\n", 1);
+        a--;
+    }
+    return (0);
 }
