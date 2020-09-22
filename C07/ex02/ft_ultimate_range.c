@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/20 18:46:41 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/20 18:46:44 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/22 09:17:26 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/22 09:17:28 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_strlen(char *src)
+int	ft_ultimate_range(int **range, int min, int max)
 {
+	int *tab;
 	int i;
+	int count;
 
-	i = 0;
-	while (src[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *src)
-{
-	int		i;
-	char	*dest;
-
-	dest = malloc(sizeof(char) * (ft_strlen(src) + 1));
-	i = 0;
-	while (src[i])
+	if (min >= max)
 	{
-		dest[i] = src[i];
-		i++;
+		*range = 0;
+		return (0);
 	}
-	dest[i] = '\0';
-	return (src);
+	else
+	{
+		tab = malloc(sizeof(int) * (max - min));
+		if (!tab)
+			return (-1);
+		i = 0;
+		count = min;
+		while (count < max)
+		{
+			tab[i] = count;
+			i++;
+			count++;
+		}
+		*range = tab;
+		return (max - min);
+	}
 }

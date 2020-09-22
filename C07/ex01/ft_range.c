@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/20 18:46:41 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/20 18:46:44 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/21 16:46:17 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/21 16:46:20 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		ft_strlen(char *src)
+int	*ft_range(int min, int max)
 {
+	int *tab;
 	int i;
+	int count;
 
+	if (min >= max)
+		return (0);
+	tab = malloc(sizeof(int) * (max - min));
+	if (!tab)
+		return (0);
 	i = 0;
-	while (src[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *src)
-{
-	int		i;
-	char	*dest;
-
-	dest = malloc(sizeof(char) * (ft_strlen(src) + 1));
-	i = 0;
-	while (src[i])
+	count = min;
+	while (count < max)
 	{
-		dest[i] = src[i];
+		tab[i] = count;
+		count++;
 		i++;
 	}
-	dest[i] = '\0';
-	return (src);
+	return (tab);
 }
