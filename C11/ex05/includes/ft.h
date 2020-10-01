@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <ebodart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 16:24:19 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/30 13:57:56 by ebodart          ###   ########.fr       */
+/*   Created: 2020/10/01 12:11:16 by ebodart           #+#    #+#             */
+/*   Updated: 2020/10/01 13:52:50 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
-{
-	int i;
-	int j;
-	int a;
+#ifndef FT_H
+# define FT_H
 
-	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i])
-	{
-		a = i;
-		while (str[a] == to_find[j])
-		{
-			a++;
-			j++;
-			if (to_find[j] == '\0')
-				return (&str[i]);
-		}
-		j = 0;
-		i++;
-	}
-	return (0);
-}
+int		ft_atoi(char *str);
+
+void	ft_putnbr(char c);
+
+int		somme(int a, int b);
+
+int		soustr(int a, int b);
+
+int		div(int a, int b);
+
+int		multi(int a, int b);
+
+int		mod(int a, int b);
+
+int		(*g_operations[5])(int, int) = {somme, soustr, div, multi, mod};
+
+#endif

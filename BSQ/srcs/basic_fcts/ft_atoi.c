@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebodart <ebodart@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 16:24:19 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/30 13:57:56 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/16 19:11:25 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/16 19:11:29 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_atoi(char *str)
 {
+	int signe;
 	int i;
-	int j;
-	int a;
+	int result;
 
+	signe = 1;
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i])
+	while (str[i] == '0')
+		i++;
+	result = 0;
+	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
-		a = i;
-		while (str[a] == to_find[j])
-		{
-			a++;
-			j++;
-			if (to_find[j] == '\0')
-				return (&str[i]);
-		}
-		j = 0;
+		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
-	return (0);
+	return (result * signe);
 }

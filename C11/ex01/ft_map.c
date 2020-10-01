@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <ebodart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 16:24:19 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/30 13:57:56 by ebodart          ###   ########.fr       */
+/*   Created: 2020/10/01 08:50:41 by ebodart           #+#    #+#             */
+/*   Updated: 2020/10/01 10:56:28 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+#include <stdlib.h>
+
+int	*ft_map(int *tab, int length, int (*f)(int))
 {
 	int i;
-	int j;
-	int a;
+	int *map;
 
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i])
+	if (!(map = malloc(sizeof(int) * length)))
+		return (0);
+	while (i < length)
 	{
-		a = i;
-		while (str[a] == to_find[j])
-		{
-			a++;
-			j++;
-			if (to_find[j] == '\0')
-				return (&str[i]);
-		}
-		j = 0;
+		map[i] = f(tab[i]);
 		i++;
 	}
-	return (0);
+	return (map);
 }

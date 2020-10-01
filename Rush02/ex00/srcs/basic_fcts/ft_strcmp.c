@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebodart <ebodart@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 16:24:19 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/30 13:57:56 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/15 16:45:38 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/15 16:45:50 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int i;
-	int j;
-	int a;
+	int ordre;
 
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i])
+	while (s1[i] == s2[i])
 	{
-		a = i;
-		while (str[a] == to_find[j])
+		if ((s1[i] == '\0') && (s2[i] == '\0'))
 		{
-			a++;
-			j++;
-			if (to_find[j] == '\0')
-				return (&str[i]);
+			return (0);
 		}
-		j = 0;
 		i++;
 	}
-	return (0);
+	ordre = s1[i] - s2[i];
+	return (ordre);
 }

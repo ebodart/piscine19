@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen0.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebodart <ebodart@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 16:24:19 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/30 13:57:56 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/16 18:42:23 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/16 18:42:25 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_strlen0(char *str)
 {
 	int i;
-	int j;
-	int a;
+    int count;
 
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i])
-	{
-		a = i;
-		while (str[a] == to_find[j])
-		{
-			a++;
-			j++;
-			if (to_find[j] == '\0')
-				return (&str[i]);
-		}
-		j = 0;
+	while (str[i] == '0')
 		i++;
+    count = 0;
+    while (str[i])
+	{
+		count++;
+        i++;
 	}
-	return (0);
+	return (count);
 }

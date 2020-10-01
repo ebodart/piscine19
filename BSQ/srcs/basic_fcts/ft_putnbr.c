@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mmorre <mmorre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 17:04:08 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/16 17:04:11 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/29 10:36:29 by mmorre            #+#    #+#             */
+/*   Updated: 2020/09/29 10:48:48 by mmorre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int i;
-	unsigned int s;
+#include <unistd.h>
 
-	i = 0;
-	s = 0;
-	while (dest[i])
-		i++;
-	while ((src[s]) && (s < nb))
+void	ft_putnbr(int nb)
+{
+	long	int	a;
+	char		c;
+
+	a = nb;
+	if (a < 0)
 	{
-		dest[i + s] = src[s];
-		s++;
+		write(1, "-", 1);
+		a = -a;
 	}
-	dest[i + s] = '\0';
-	return (dest);
+	if (a >= 10)
+	{
+		ft_putnbr(a / 10);
+	}
+	c = a % 10 + '0';
+	write(1, &c, 1);
 }

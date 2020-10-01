@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebodart <ebodart@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 16:24:19 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/30 13:57:56 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/16 18:48:56 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/16 18:48:59 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
 	int i;
-	int j;
-	int a;
 
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
 	while (str[i])
 	{
-		a = i;
-		while (str[a] == to_find[j])
-		{
-			a++;
-			j++;
-			if (to_find[j] == '\0')
-				return (&str[i]);
-		}
-		j = 0;
+		write(1, &str[i], 1);
 		i++;
 	}
-	return (0);
 }

@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_binary.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <ebodart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 16:24:19 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/30 13:57:56 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/30 18:37:20 by mmorre            #+#    #+#             */
+/*   Updated: 2020/09/30 20:32:56 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+/*int   *ft_binary(int val, char *list, int nb_char)
 {
-	int i;
-	int j;
 	int a;
+	int end;
+	int midl;
+	
+	a = 0;
+	end = nb_char -1;
+	midl = (a + end)/2;
 
-	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i])
+	while(a < end)
 	{
-		a = i;
-		while (str[a] == to_find[j])
+		if(list[midl] == val)
+			return midl;
+		else if (list[midl] > val)
 		{
-			a++;
-			j++;
-			if (to_find[j] == '\0')
-				return (&str[i]);
+			end = midl +1;
 		}
-		j = 0;
-		i++;
+		else
+			a = midl +1;
 	}
-	return (0);
-}
+		midl = (a + end)/2;
+		return a;
+}*/

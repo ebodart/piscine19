@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <ebodart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/28 16:24:19 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/30 13:57:56 by ebodart          ###   ########.fr       */
+/*   Created: 2020/10/01 10:01:19 by ebodart           #+#    #+#             */
+/*   Updated: 2020/10/01 11:58:04 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int i;
-	int j;
-	int a;
+	int fin;
 
+	fin = 0;
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i])
+	while (i < length - 1)
 	{
-		a = i;
-		while (str[a] == to_find[j])
-		{
-			a++;
-			j++;
-			if (to_find[j] == '\0')
-				return (&str[i]);
-		}
-		j = 0;
+		if (f(tab[i], tab[i + 1]) > 0)
+			fin = 1;
 		i++;
 	}
+	if (fin == 0)
+		return (1);
+	i = 0;
+	fin = 0;
+	while (i < length - 1)
+	{
+		if (f(tab[i], tab[i + 1]) < 0)
+			fin = 1;
+		i++;
+	}
+	if (fin == 0)
+		return (1);
 	return (0);
 }

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_open_close_file.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mmorre <mmorre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 17:04:08 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/16 17:04:11 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/29 10:50:58 by mmorre            #+#    #+#             */
+/*   Updated: 2020/09/29 10:51:06 by mmorre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int i;
-	unsigned int s;
+#include <unistd.h>
+#include <fcntl.h>
 
-	i = 0;
-	s = 0;
-	while (dest[i])
-		i++;
-	while ((src[s]) && (s < nb))
-	{
-		dest[i + s] = src[s];
-		s++;
-	}
-	dest[i + s] = '\0';
-	return (dest);
+int		ft_open_file(char *path)
+{
+	return (open(path, O_RDONLY));
+}
+
+int		ft_close_file(int file)
+{
+	return (close(file));
 }

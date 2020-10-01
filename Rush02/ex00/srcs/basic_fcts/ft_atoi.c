@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebodart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 17:04:08 by ebodart           #+#    #+#             */
-/*   Updated: 2020/09/16 17:04:11 by ebodart          ###   ########.fr       */
+/*   Created: 2020/09/16 19:11:25 by ebodart           #+#    #+#             */
+/*   Updated: 2020/09/16 19:11:29 by ebodart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_atoi(char *str)
 {
-	unsigned int i;
-	unsigned int s;
+	int signe;
+	int i;
+	int result;
 
+	signe = 1;
 	i = 0;
-	s = 0;
-	while (dest[i])
+	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\v') ||
+	(str[i] == '\f') || (str[i] == '\r') || (str[i] == '\n'))
 		i++;
-	while ((src[s]) && (s < nb))
+	while ((str[i] == '+') || (str[i] == '-'))
 	{
-		dest[i + s] = src[s];
-		s++;
+		if (str[i] == '-')
+			signe = -signe;
+		i++;
 	}
-	dest[i + s] = '\0';
-	return (dest);
+	result = 0;
+	while ((str[i] >= '0') && (str[i] <= '9'))
+	{
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (result * signe);
 }
